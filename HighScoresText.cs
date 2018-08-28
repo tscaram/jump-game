@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Controls the high scores screen and ensures that the right scores are displayed. If there are no scores yet, display 0
+
 public class HighScoresText : MonoBehaviour {
 
     public Text highScores;
 
-	// Use this for initialization
-	void Start () {
+    // Pulls the scores from playerprefs and if they don't exist use 0 instead
+    void Start () {
         int endlessScore = 0;
         int hardcoreScore = 0;
         if (PlayerPrefs.HasKey("Hardcore"))
@@ -22,16 +24,17 @@ public class HighScoresText : MonoBehaviour {
             endlessScore = PlayerPrefs.GetInt("Endless");
         }
         highScores.text = "Hardcore: " + hardcoreScore + '\n' + "Endless: " + endlessScore;
-	}
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape))
+    // Return to main menu if escape is pressed
+    void Update () {
+	if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
-	}
+    }
 
+    //resets all the scores to 0 and then runs the start function again so you can see they've been reset
     public void reset()
     {
         if (PlayerPrefs.HasKey("Hardcore"))

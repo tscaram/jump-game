@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+    //The length of this array was picked in the unity editor as we developed the game, so this number doesn't actually line up with
+    //the real number in the game
     public GameObject[] platforms = new GameObject[4];
 
-	// Use this for initialization
-	void Start () {
+    void Start () {
         int height = 2;
-		for (int i = 0; i < 50; i++)
-        {
+	    
+	//instantiates 50 random platforms as soon as the scene is created. This is used for the main mode, which has a fixed win height
+	for (int i = 0; i < 50; i++) {	
             int whichObject = Random.Range(0, 6);
             float x = 0;
-            switch (whichObject)
-            {
+            switch (whichObject){
                 case 0:
                     x = 2.165f;
                     break;
@@ -40,11 +41,11 @@ public class GameController : MonoBehaviour {
             Instantiate(platforms[whichObject], new Vector2(x, height), Quaternion.Euler(new Vector3(0,0,90)));
             height += 3;
         }
-	}
+    }
 	
-	// Update is called once per frame
-	void Update () {
+    //if the player presses escape, quit to the main menu
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(0);
-	}
+    }
 }

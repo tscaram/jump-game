@@ -16,8 +16,6 @@ Intro.
 All of the code for this game was written in C# in Visual Studio.
 
 Creators:
-Tyler Scaramastro
-Mason Rocha
-Henry Abrams
+Tyler Scaramastro, Mason Rocha, Henry Abrams
 
 Houston High School Programming Club, 2018

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HardCore : MonoBehaviour {
+//controls the hardcore game mode
 
+public class HardCore : MonoBehaviour {
+    
+    //sets up the array of platforms and sets initial height
     public GameObject[] platforms = new GameObject[6];
     int height = 2;
 
+    //sets up the enemy gameobject, allowing the script to instantiate enemies
     public GameObject enemy;
 
-    // Use this for initialization
+    // Sets the game mode and instantiates the first ten platforms
     void Start()
     {
         MainMenuControl.gameMode = "Hardcore";
@@ -22,7 +26,7 @@ public class HardCore : MonoBehaviour {
 
 
 
-    // Update is called once per frame
+    // Works the same as the endless script, except this one has a chance of instantiating an enemy
     void Update()
     {
 
@@ -36,7 +40,7 @@ public class HardCore : MonoBehaviour {
     }
 
 
-
+    //instantiates new platforms with offsets
     void instantiateRandom()
     {
         int whichObject = Random.Range(0, 6);
@@ -67,6 +71,7 @@ public class HardCore : MonoBehaviour {
         height += 3;
     }
 
+    //has a one in 5 chance of instantiating an enemy on the platform in a random location
     void instantiateEnemy(int theHeight)
     {
         int chance = Random.Range(0, 6);

@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class BulletRightMove : MonoBehaviour {
 
+    /*This does the same as the BulletLeftMove script, but goes to the right instead.
+      These scripts are for the hardcore mode where enemies shoot at you.
+     */
+	
     float speed;
 
-	// Use this for initialization
-	void Start () {
+
+    void Start () {
         speed = 0.1f;
         StartCoroutine(selfDestruct());
-	}
+    }
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    void FixedUpdate () {
 
         if (Time.timeScale != 0)
             transform.Translate(Vector2.right * speed);
         
-	}
+    }
 
     IEnumerator selfDestruct()
     {

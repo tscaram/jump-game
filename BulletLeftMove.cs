@@ -5,15 +5,15 @@ using UnityEngine;
 public class BulletLeftMove : MonoBehaviour {
 
     float speed;
-
-    // Use this for initialization
+    
+    //initializing speed and telling the bullet to start the selfdestruct coroutine
     void Start()
     {
         speed = 0.1f;
         StartCoroutine(selfDestruct());
     }
 
-    // Update is called once per frame
+    //Once per frame, translate the bullet to the left
     void FixedUpdate()
     {
 
@@ -22,6 +22,7 @@ public class BulletLeftMove : MonoBehaviour {
 
     }
 
+    //Tells the bullet to self destruct if it hasn't hit anything in 3 seconds
     IEnumerator selfDestruct()
     {
         yield return new WaitForSeconds(3);

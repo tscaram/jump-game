@@ -48,6 +48,7 @@ public class HighScoresText : MonoBehaviour {
         Start();
     }
 
+    //clicking the main menu button takes you to the main menu
     public void menu()
     {
         SceneManager.LoadScene("MainMenu");
